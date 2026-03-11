@@ -9,5 +9,5 @@ Datapage= requests.get(f"https://www.yallakora.com/match-center?date={date}#days
 
 def work(Datapage):
     beautifulsoup=BeautifulSoup(Datapage.content,"lxml")
-    print(beautifulsoup)
+    Matches=[]
 work(Datapage)
