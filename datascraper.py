@@ -9,16 +9,20 @@ Datapage= requests.get(f"https://www.yallakora.com/match-center?date={date}#days
 
 def work(Datapage):
     soup=BeautifulSoup(Datapage.content,"lxml")
-    champoion =soup.find_all("div",{'class':'matchCard'}) 
+    champoions =soup.find_all("div",{'class':'matchCard'}) 
     Matches=[]
-    return champoion
+    x=champoions[0].contents[0].find('h2').text
+    return x
 
-def content(Datapage):
-    dictionary=work(Datapage)
-    list1 = dictionary.contents[0]
-    return list1
+print(work(Datapage))
 
-def main():
-    print(content(Datapage))
 
-main()
+# def content(Datapage):
+#     dictionary=work(Datapage)
+#     list1 = dictionary.contents[0]
+#     return list1
+
+# def work2():
+#     print(content(Datapage))
+
+
