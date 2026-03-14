@@ -10,7 +10,11 @@ Datapage= requests.get(f"https://www.yallakora.com/match-center?date={date}#days
 def Soup(data):
     cont = data.content
     contentsoup = BeautifulSoup(cont,"lxml")
+    print(f"Contents before find all {contentsoup}")
+    print("##########################################################################################################################")
     champoions= contentsoup.find_all("div",{'class':'matchCard'})
+    print(f"Champions after find all : {champoions}")
+    print("########################################################################################################################")
     return champoions
 
 def get_match_info(champoions):
@@ -18,7 +22,7 @@ def get_match_info(champoions):
     champion=champoions[0].contents[0]
     return champion
 
-print(get_match_info(Datapage))
+Soup(Datapage)
 
 
 
